@@ -1,11 +1,20 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 export default function HomePage() {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
   const [status, setStatus] = useState(null);
+
+  // Create URL-friendly slug from title
+  function createSlug(title) {
+    return title
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/(^-|-$)/g, '');
+  }
 
   useEffect(() => {
     async function loadData() {
@@ -218,9 +227,14 @@ export default function HomePage() {
                       {article.category?.toUpperCase() || 'TRADE'}
                     </span>
                   </div>
-                  <h2 style={{ fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '12px', color: '#0B1D3A' }}>
-                    {article.title}
-                  </h2>
+                  <Link href={`/article/${createSlug(article.title)}`} style={{ textDecoration: 'none' }}>
+                    <h2 style={{ fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '12px', color: '#0B1D3A', cursor: 'pointer' }}
+                      onMouseOver={(e) => e.target.style.color = '#D21E2B'}
+                      onMouseOut={(e) => e.target.style.color = '#0B1D3A'}
+                    >
+                      {article.title}
+                    </h2>
+                  </Link>
                   <p style={{ color: '#666', fontSize: '0.875rem', marginBottom: '12px', lineHeight: '1.5' }}>
                     {article.content ? article.content.substring(0, 150) + '...' : 'No preview available'}
                   </p>
