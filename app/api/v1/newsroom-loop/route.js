@@ -13,3 +13,4 @@ export async function GET() {
 export async function POST() {
   return GET(); // Same response for POST
 }
+
