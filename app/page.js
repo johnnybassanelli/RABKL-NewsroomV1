@@ -28,32 +28,33 @@ export default function HomePage() {
             setStatus(statusData);
           }
         } catch (statusError) {
-          console.log('Status endpoint not available');
-        }
-        
-        // Fetch published articles
-        try {
-          const articlesResponse = await fetch('/api/articles');
-          if (articlesResponse.ok) {
-            const articlesData = await articlesResponse.json();
-            if (articlesData.success && articlesData.articles) {
-              setArticles(articlesData.articles);
-            }
+  useEffect(() => {
+    async function loadData() {
+      try {
+        // Fetch articles
+        const response = await fetch("/api/articles", { cache: 'no-store' });
+        if (response.ok) {
+          const data = await response.json();
+          if (data.success && data.articles) {
+            setArticles(data.articles);
           }
-        } catch (articlesError) {
-          console.log('Articles endpoint not available');
         }
-        
+
+        // Fetch status
+        const statusResponse = await fetch("/api/v1/status");
+        if (statusResponse.ok) {
+          const statusData = await statusResponse.json();
+          setStatus(statusData);
+        }
       } catch (error) {
-        console.error('Error loading data:', error);
+        console.error("Error loading data:", error);
       } finally {
         setLoading(false);
       }
     }
-    
+
     loadData();
   }, []);
-
   const testPublish = async () => {
     const testArticle = {
       message: 'news: test-article',
