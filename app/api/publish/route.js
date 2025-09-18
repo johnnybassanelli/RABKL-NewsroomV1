@@ -4,6 +4,9 @@ import { NextResponse } from 'next/server';
 // In-memory storage for articles (in production, use a database)
 let articles = [];
 
+// Global storage for sharing between endpoints
+global.rabklArticles = global.rabklArticles || [];
+
 export async function POST(request) {
   try {
     // Check for publish secret
@@ -28,6 +31,7 @@ export async function POST(request) {
           
           // Add to articles list
           articles.push(articleData);
+          global.rabklArticles.push(articleData);
           
           console.log(`Added article: ${articleData.title || 'Unknown'}`);
           
@@ -63,4 +67,3 @@ export async function GET() {
 
 // Export articles for use in other components
 export { articles };
-

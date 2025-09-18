@@ -21,6 +21,19 @@ export default function HomePage() {
           console.log('Status endpoint not available');
         }
         
+        // Fetch published articles
+        try {
+          const articlesResponse = await fetch('/api/articles');
+          if (articlesResponse.ok) {
+            const articlesData = await articlesResponse.json();
+            if (articlesData.success && articlesData.articles) {
+              setArticles(articlesData.articles);
+            }
+          }
+        } catch (articlesError) {
+          console.log('Articles endpoint not available');
+        }
+        
       } catch (error) {
         console.error('Error loading data:', error);
       } finally {
@@ -202,14 +215,17 @@ export default function HomePage() {
                       </span>
                     )}
                     <span style={{ display: 'inline-flex', alignItems: 'center', padding: '4px 10px', borderRadius: '9999px', fontSize: '0.75rem', fontWeight: '500', color: 'white', backgroundColor: '#0B1D3A' }}>
-                      TRADE
+                      {article.category?.toUpperCase() || 'TRADE'}
                     </span>
                   </div>
                   <h2 style={{ fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '12px', color: '#0B1D3A' }}>
                     {article.title}
                   </h2>
-                  <p style={{ color: '#666', fontSize: '0.875rem', marginBottom: '16px' }}>
-                    {new Date(article.date).toLocaleDateString('en-US', {
+                  <p style={{ color: '#666', fontSize: '0.875rem', marginBottom: '12px', lineHeight: '1.5' }}>
+                    {article.content ? article.content.substring(0, 150) + '...' : 'No preview available'}
+                  </p>
+                  <p style={{ color: '#999', fontSize: '0.75rem', marginBottom: '16px' }}>
+                    By {article.author || 'RABKL Newsroom'} • {new Date(article.timestamp || article.date).toLocaleDateString('en-US', {
                       year: 'numeric',
                       month: 'long',
                       day: 'numeric'
