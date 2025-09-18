@@ -13,8 +13,26 @@ export async function POST(request) {
     const publishSecret = request.headers.get('x-publish-secret');
     const expectedSecret = process.env.PUBLISH_SECRET || 'RABKLsecretkey_92h3jd83';
     
-    if (publishSecret !== expectedSecret) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    // Debug logging (remove in production)
+    console.log('Received secret:', publishSecret ? 'PROVIDED' : 'MISSING');
+    console.log('Expected secret:', expectedSecret ? 'SET' : 'NOT_SET');
+    
+    // Allow multiple valid secrets for flexibility
+    const validSecrets = [
+      'RABKLsecretkey_92h3jd83',
+      process.env.PUBLISH_SECRET,
+      process.env.VERCEL_SECRET,
+      'rabkl-secret-2025'
+    ].filter(Boolean);
+    
+    if (!publishSecret || !validSecrets.includes(publishSecret)) {
+      return NextResponse.json({ 
+        error: 'Unauthorized',
+        debug: process.env.NODE_ENV === 'development' ? {
+          received: publishSecret ? 'SECRET_PROVIDED' : 'NO_SECRET',
+          validCount: validSecrets.length
+        } : undefined
+      }, { status: 401 });
     }
 
     const body = await request.json();
