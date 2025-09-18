@@ -1,0 +1,12 @@
+{
+  "functions": {
+    "pages/api/publish.js": {
+      "maxDuration": 60
+    }
+  },
+  "env": {
+    "PUBLISH_SECRET": "RABKLsecretkey_92h3jd83",
+    "SLEEPER_LEAGUE_ID": "1228186433580171264"
+  }
+}
+
