@@ -2,7 +2,6 @@
   "name": "rabkl-newsroom-v1",
   "version": "1.0.0",
   "description": "RABKL Newsroom Agent - Fantasy Basketball News",
-  "main": "index.js",
   "scripts": {
     "build": "next build",
     "dev": "next dev",
@@ -17,4 +16,3 @@
     "node": ">=18"
   }
 }
-
