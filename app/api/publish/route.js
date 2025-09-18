@@ -1,11 +1,6 @@
 // /api/publish endpoint for RABKL Newsroom (App Router)
 import { NextResponse } from 'next/server';
-
-// In-memory storage for articles (in production, use a database)
-let articles = [];
-
-// Global storage for sharing between endpoints
-global.rabklArticles = global.rabklArticles || [];
+import { addArticle, getArticleCount } from '../../../lib/storage.js';
 
 export async function POST(request) {
   try {
@@ -38,6 +33,8 @@ export async function POST(request) {
     const body = await request.json();
     const { files = [] } = body;
     
+    let publishedCount = 0;
+    
     // Process files and extract article metadata
     for (const file of files) {
       const { path: filePath, content } = file;
@@ -47,11 +44,15 @@ export async function POST(request) {
         try {
           const articleData = JSON.parse(content);
           
-          // Add to articles list
-          articles.push(articleData);
-          global.rabklArticles.push(articleData);
+          // Add to persistent storage
+          const updatedArticles = addArticle(articleData);
           
-          console.log(`Added article: ${articleData.title || 'Unknown'}`);
+          if (updatedArticles) {
+            publishedCount++;
+            console.log(`Added article: ${articleData.title || 'Unknown'}`);
+          } else {
+            console.error(`Failed to add article: ${articleData.title || 'Unknown'}`);
+          }
           
         } catch (jsonError) {
           console.error('JSON parse error:', jsonError);
@@ -60,10 +61,13 @@ export async function POST(request) {
       }
     }
     
+    const totalCount = getArticleCount();
+    
     return NextResponse.json({
       success: true,
       message: 'Content published successfully',
-      articles_count: articles.length,
+      articles_count: totalCount,
+      published_this_request: publishedCount,
       timestamp: new Date().toISOString()
     });
     
@@ -82,6 +86,3 @@ export async function GET() {
     error: 'Method not allowed. Use POST to publish content.' 
   }, { status: 405 });
 }
-
-// Export articles for use in other components
-export { articles };
