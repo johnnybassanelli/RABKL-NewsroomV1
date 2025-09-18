@@ -1,10 +1,13 @@
 // /api/articles endpoint for RABKL Newsroom (App Router)
 import { NextResponse } from 'next/server';
-import { getArticles } from '../../../lib/storage.js';
+import { getArticles, initializeSampleArticles } from '../../../lib/simple-storage.js';
 
 export async function GET() {
   try {
-    // Get articles from persistent storage
+    // Initialize sample articles if none exist
+    initializeSampleArticles();
+    
+    // Get articles from storage
     const articles = getArticles();
     
     return NextResponse.json({

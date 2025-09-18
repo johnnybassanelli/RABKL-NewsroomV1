@@ -1,9 +1,12 @@
 // /api/publish endpoint for RABKL Newsroom (App Router)
 import { NextResponse } from 'next/server';
-import { addArticle, getArticleCount } from '../../../lib/storage.js';
+import { addArticle, getArticleCount, initializeSampleArticles } from '../../../lib/simple-storage.js';
 
 export async function POST(request) {
   try {
+    // Initialize sample articles if none exist
+    initializeSampleArticles();
+    
     // Check for publish secret
     const publishSecret = request.headers.get('x-publish-secret');
     const expectedSecret = process.env.PUBLISH_SECRET || 'RABKLsecretkey_92h3jd83';
