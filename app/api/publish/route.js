@@ -1,26 +1,21 @@
-// /api/publish endpoint for RABKL Newsroom
-import fs from 'fs';
-import path from 'path';
+// /api/publish endpoint for RABKL Newsroom (App Router)
+import { NextResponse } from 'next/server';
 
 // In-memory storage for articles (in production, use a database)
 let articles = [];
 
-export default function handler(req, res) {
-  // Only allow POST requests
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
-  }
-
-  // Check for publish secret
-  const publishSecret = req.headers['x-publish-secret'];
-  const expectedSecret = process.env.PUBLISH_SECRET || 'RABKLsecretkey_92h3jd83';
-  
-  if (publishSecret !== expectedSecret) {
-    return res.status(401).json({ error: 'Unauthorized' });
-  }
-
+export async function POST(request) {
   try {
-    const { files = [] } = req.body;
+    // Check for publish secret
+    const publishSecret = request.headers.get('x-publish-secret');
+    const expectedSecret = process.env.PUBLISH_SECRET || 'RABKLsecretkey_92h3jd83';
+    
+    if (publishSecret !== expectedSecret) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+
+    const body = await request.json();
+    const { files = [] } = body;
     
     // Process files and extract article metadata
     for (const file of files) {
@@ -43,7 +38,7 @@ export default function handler(req, res) {
       }
     }
     
-    return res.status(200).json({
+    return NextResponse.json({
       success: true,
       message: 'Content published successfully',
       articles_count: articles.length,
@@ -52,13 +47,19 @@ export default function handler(req, res) {
     
   } catch (error) {
     console.error('Publish error:', error);
-    return res.status(500).json({ 
+    return NextResponse.json({ 
       error: 'Internal server error', 
       details: error.message 
-    });
+    }, { status: 500 });
   }
 }
 
-// Export articles for use in other pages
-export { articles };
+// Handle other HTTP methods
+export async function GET() {
+  return NextResponse.json({ 
+    error: 'Method not allowed. Use POST to publish content.' 
+  }, { status: 405 });
+}
 
+// Export articles for use in other components
+export { articles };
