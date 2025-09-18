@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import { getHeroImage, getImageAlt, getCategoryIcon, getCategoryColor } from '../../../lib/image-utils.js';
 
 export default function ArticlePage({ params }) {
   const [article, setArticle] = useState(null);
@@ -129,8 +130,8 @@ export default function ArticlePage({ params }) {
                   🚨 BREAKING
                 </span>
               )}
-              <span style={{ display: 'inline-flex', alignItems: 'center', padding: '6px 12px', borderRadius: '9999px', fontSize: '0.75rem', fontWeight: '600', color: 'white', backgroundColor: '#0B1D3A' }}>
-                {article.category?.toUpperCase() || 'NEWS'}
+              <span style={{ display: 'inline-flex', alignItems: 'center', padding: '6px 12px', borderRadius: '9999px', fontSize: '0.75rem', fontWeight: '600', color: 'white', backgroundColor: getCategoryColor(article.category) }}>
+                {getCategoryIcon(article.category)} {article.category?.toUpperCase() || 'NEWS'}
               </span>
             </div>
 
@@ -163,11 +164,35 @@ export default function ArticlePage({ params }) {
             </div>
           </div>
 
-          {/* Hero Image Placeholder */}
-          <div style={{ backgroundColor: '#F3F4F6', height: '300px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 24px 32px 24px', borderRadius: '8px' }}>
-            <div style={{ textAlign: 'center', color: '#6B7280' }}>
-              <div style={{ fontSize: '3rem', marginBottom: '8px' }}>🏀</div>
-              <p style={{ fontSize: '0.875rem', margin: 0 }}>Hero Image Coming Soon</p>
+          {/* Hero Image */}
+          <div style={{ margin: '0 24px 32px 24px', borderRadius: '8px', overflow: 'hidden', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}>
+            <img 
+              src={getHeroImage(article)}
+              alt={getImageAlt(article)}
+              style={{ 
+                width: '100%', 
+                height: '300px', 
+                objectFit: 'cover',
+                display: 'block'
+              }}
+              onError={(e) => {
+                // Fallback to placeholder if image fails to load
+                e.target.style.display = 'none';
+                e.target.nextSibling.style.display = 'flex';
+              }}
+            />
+            <div style={{ 
+              backgroundColor: '#F3F4F6', 
+              height: '300px', 
+              display: 'none', 
+              alignItems: 'center', 
+              justifyContent: 'center',
+              color: '#6B7280'
+            }}>
+              <div style={{ textAlign: 'center' }}>
+                <div style={{ fontSize: '3rem', marginBottom: '8px' }}>{getCategoryIcon(article?.category)}</div>
+                <p style={{ fontSize: '0.875rem', margin: 0 }}>RABKL Newsroom</p>
+              </div>
             </div>
           </div>
 

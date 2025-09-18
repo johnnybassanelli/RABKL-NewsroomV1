@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { getCategoryIcon, getCategoryColor } from '../lib/image-utils.js';
 
 export default function HomePage() {
   const [articles, setArticles] = useState([]);
@@ -223,8 +224,8 @@ export default function HomePage() {
                         BREAKING
                       </span>
                     )}
-                    <span style={{ display: 'inline-flex', alignItems: 'center', padding: '4px 10px', borderRadius: '9999px', fontSize: '0.75rem', fontWeight: '500', color: 'white', backgroundColor: '#0B1D3A' }}>
-                      {article.category?.toUpperCase() || 'TRADE'}
+                    <span style={{ display: 'inline-flex', alignItems: 'center', padding: '4px 10px', borderRadius: '9999px', fontSize: '0.75rem', fontWeight: '500', color: 'white', backgroundColor: getCategoryColor(article.category) }}>
+                      {getCategoryIcon(article.category)} {article.category?.toUpperCase() || 'TRADE'}
                     </span>
                   </div>
                   <Link href={`/article/${createSlug(article.title)}`} style={{ textDecoration: 'none' }}>
