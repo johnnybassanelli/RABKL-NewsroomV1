@@ -1,11 +1,11 @@
 // /api/publish endpoint for RABKL Newsroom (App Router)
 import { NextResponse } from 'next/server';
-import { addSharedArticle, getSharedArticleCount, initializeSharedStorage } from '../../../lib/shared-storage.js';
+import { addEnhancedArticle, getEnhancedArticleCount, initializeEnhancedStorage } from '../../../lib/enhanced-storage.js';
 
 export async function POST(request) {
   try {
     // Initialize sample articles if none exist
-    await initializeSharedStorage();
+    await initializeEnhancedStorage();
     
     // Check for publish secret
     const publishSecret = request.headers.get('x-publish-secret');
@@ -48,7 +48,7 @@ export async function POST(request) {
           const articleData = JSON.parse(content);
           
           // Add to persistent storage
-          const updatedArticles = await addSharedArticle(articleData);
+          const updatedArticles = await addEnhancedArticle(articleData);
           
           if (updatedArticles) {
             publishedCount++;
@@ -64,7 +64,7 @@ export async function POST(request) {
       }
     }
     
-    const totalCount = await getSharedArticleCount();
+    const totalCount = await getEnhancedArticleCount();
     
     return NextResponse.json({
       success: true,

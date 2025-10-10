@@ -1,15 +1,15 @@
 // /api/articles endpoint for RABKL Newsroom (App Router)
 import { NextResponse } from 'next/server';
-import { getSharedArticles, initializeSharedStorage } from '../../../lib/shared-storage.js';
+import { getEnhancedArticles, initializeEnhancedStorage } from '../../../lib/enhanced-storage.js';
 import { generatePowerRankingsArticle } from '../../../lib/power-rankings-generator.js';
 
 export async function GET() {
   try {
     // Initialize sample articles if none exist
-    await initializeSharedStorage();
+    await initializeEnhancedStorage();
     
     // Get articles from storage
-    let articles = await getSharedArticles();
+    let articles = await getEnhancedArticles();
 
     // Generate the latest power rankings article with live RABKL data
     const powerRankingsArticle = await generatePowerRankingsArticle();
