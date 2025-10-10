@@ -20,17 +20,6 @@ export default function HomePage() {
   useEffect(() => {
     async function loadData() {
       try {
-        // Check if the newsroom agent is running
-        try {
-          const statusResponse = await fetch('/api/v1/status');
-          if (statusResponse.ok) {
-            const statusData = await statusResponse.json();
-            setStatus(statusData);
-          }
-        } catch (statusError) {
-  useEffect(() => {
-    async function loadData() {
-      try {
         // Fetch articles
         const response = await fetch("/api/articles", { cache: 'no-store' });
         if (response.ok) {
@@ -41,10 +30,14 @@ export default function HomePage() {
         }
 
         // Fetch status
-        const statusResponse = await fetch("/api/v1/status");
-        if (statusResponse.ok) {
-          const statusData = await statusResponse.json();
-          setStatus(statusData);
+        try {
+          const statusResponse = await fetch("/api/v1/status");
+          if (statusResponse.ok) {
+            const statusData = await statusResponse.json();
+            setStatus(statusData);
+          }
+        } catch (statusError) {
+          console.log("Status endpoint not available:", statusError.message);
         }
       } catch (error) {
         console.error("Error loading data:", error);
@@ -55,6 +48,7 @@ export default function HomePage() {
 
     loadData();
   }, []);
+
   const testPublish = async () => {
     const testArticle = {
       message: 'news: test-article',
@@ -282,4 +276,3 @@ export default function HomePage() {
     </div>
   );
 }
-
