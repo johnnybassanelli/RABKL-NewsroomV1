@@ -1,6 +1,7 @@
 {
   "name": "rabkl-newsroom-v1",
   "version": "1.0.0",
+  "type": "module",
   "description": "RABKL Newsroom Agent - Fantasy Basketball News",
   "scripts": {
     "build": "next build",
