@@ -11,8 +11,8 @@ export async function GET() {
     // Get articles from storage
     let articles = getArticles();
 
-    // Generate the latest power rankings article
-    const powerRankingsArticle = generatePowerRankingsArticle();
+    // Generate the latest power rankings article with live RABKL data
+    const powerRankingsArticle = await generatePowerRankingsArticle();
 
     // Remove any existing power rankings article to prevent duplicates
     articles = articles.filter(a => a.category !== 'power-rankings');
