@@ -1,6 +1,6 @@
 // API endpoint for generating and publishing preseason power rankings
 import { NextResponse } from 'next/server';
-import { generatePreseasonPowerRankingsArticle } from '../../../../lib/preseason-power-rankings-generator.js';
+import { generateAccuratePreseasonPowerRankingsArticle } from '../../../../lib/accurate-preseason-power-rankings-generator.js';
 import { generatePowerRankingsImage, savePowerRankingsImage } from '../../../../lib/power-rankings-image-generator.js';
 import { addEnhancedArticle } from '../../../../lib/enhanced-storage.js';
 import SleeperAPI from '../../../../lib/sleeper-api.js';
@@ -21,8 +21,8 @@ export async function POST(request) {
       return NextResponse.json({ error: 'No teams data available' }, { status: 500 });
     }
 
-    // Generate the comprehensive article
-    const article = await generatePreseasonPowerRankingsArticle();
+    // Generate the accurate article using Week 1 matchup data
+    const article = await generateAccuratePreseasonPowerRankingsArticle();
     if (!article) {
       return NextResponse.json({ error: 'Failed to generate article' }, { status: 500 });
     }
