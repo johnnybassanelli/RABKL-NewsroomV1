@@ -1,7 +1,7 @@
 // /api/articles endpoint for RABKL Newsroom (App Router)
 import { NextResponse } from 'next/server';
 import { getEnhancedArticles, initializeEnhancedStorage } from '../../../lib/enhanced-storage.js';
-import { generateAccuratePreseasonPowerRankingsArticle } from '../../../lib/accurate-preseason-power-rankings-generator.js';
+import { generateEnhancedDetailedPowerRankingsArticle } from '../../../lib/enhanced-detailed-power-rankings-generator.js';
 
 export async function GET() {
   try {
@@ -11,8 +11,8 @@ export async function GET() {
     // Get articles from storage
     let articles = await getEnhancedArticles();
 
-    // Generate the latest accurate preseason power rankings article with Week 1 data
-    const powerRankingsArticle = await generateAccuratePreseasonPowerRankingsArticle();
+    // Generate the latest enhanced detailed preseason power rankings article with Week 1 data
+    const powerRankingsArticle = await generateEnhancedDetailedPowerRankingsArticle();
 
     // Remove any existing power rankings article to prevent duplicates
     articles = articles.filter(a => a.category !== 'power-rankings');

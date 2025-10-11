@@ -1,7 +1,7 @@
 // API endpoint for generating and publishing preseason power rankings
 import { NextResponse } from 'next/server';
-import { generateAccuratePreseasonPowerRankingsArticle } from '../../../../lib/accurate-preseason-power-rankings-generator.js';
-import { generatePowerRankingsImage, savePowerRankingsImage } from '../../../../lib/power-rankings-image-generator.js';
+import { generateEnhancedDetailedPowerRankingsArticle } from '../../../../lib/enhanced-detailed-power-rankings-generator.js';
+import { generateEnhancedPowerRankingsImage, saveEnhancedPowerRankingsImage } from '../../../../lib/enhanced-power-rankings-image-generator.js';
 import { addEnhancedArticle } from '../../../../lib/enhanced-storage.js';
 import SleeperAPI from '../../../../lib/sleeper-api.js';
 
@@ -21,26 +21,26 @@ export async function POST(request) {
       return NextResponse.json({ error: 'No teams data available' }, { status: 500 });
     }
 
-    // Generate the accurate article using Week 1 matchup data
-    const article = await generateAccuratePreseasonPowerRankingsArticle();
+    // Generate the enhanced detailed article using Week 1 matchup data
+    const article = await generateEnhancedDetailedPowerRankingsArticle();
     if (!article) {
       return NextResponse.json({ error: 'Failed to generate article' }, { status: 500 });
     }
 
-    // Generate the power rankings image
+    // Generate the enhanced power rankings image with GM profiles
     let imageData = null;
     try {
-      imageData = await generatePowerRankingsImage(teams, 'RABKL Preseason Power Rankings');
-      console.log('Generated power rankings image');
+      imageData = await generateEnhancedPowerRankingsImage(teams, 'RABKL Preseason Power Rankings');
+      console.log('Generated enhanced power rankings image with GM profiles');
     } catch (error) {
-      console.error('Error generating image:', error);
+      console.error('Error generating enhanced image:', error);
       // Continue without image
     }
 
-    // Add image reference to article if generated
+    // Add enhanced image reference to article if generated
     if (imageData) {
-      article.hero_image = '/images/rabkl-preseason-rankings-2025.svg';
-      article.thumbnail = '/images/rabkl-preseason-rankings-thumb.svg';
+      article.hero_image = '/images/rabkl-enhanced-preseason-rankings-2025.svg';
+      article.thumbnail = '/images/rabkl-enhanced-preseason-rankings-thumb.svg';
     }
 
     // Publish the article
