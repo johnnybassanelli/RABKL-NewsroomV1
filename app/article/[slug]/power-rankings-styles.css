@@ -1,0 +1,300 @@
+/* Enhanced Power Rankings Article Styling */
+/* Professional sports website appearance with colorful design */
+
+.power-rankings-article {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  min-height: 100vh;
+  color: #ffffff;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.article-header {
+  background: linear-gradient(90deg, #ff6b35 0%, #f7931e 50%, #ffd700 100%);
+  padding: 2rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.article-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('/images/basketball-pattern.png') repeat;
+  opacity: 0.1;
+}
+
+.article-title {
+  font-size: 3rem;
+  font-weight: 900;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  margin: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.article-subtitle {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+  opacity: 0.9;
+  position: relative;
+  z-index: 2;
+}
+
+.article-meta {
+  background: rgba(255,255,255,0.1);
+  padding: 1rem;
+  border-radius: 10px;
+  margin: 2rem auto;
+  max-width: 600px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.hero-image {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  margin: 2rem auto;
+  display: block;
+}
+
+.content-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Tier Section Styling */
+.tier-section {
+  margin: 3rem 0;
+  background: rgba(255,255,255,0.05);
+  border-radius: 15px;
+  padding: 2rem;
+  border-left: 5px solid;
+  backdrop-filter: blur(10px);
+}
+
+.tier-championship {
+  border-left-color: #ffd700;
+  background: linear-gradient(135deg, rgba(255,215,0,0.1) 0%, rgba(255,215,0,0.05) 100%);
+}
+
+.tier-elite {
+  border-left-color: #00ff88;
+  background: linear-gradient(135deg, rgba(0,255,136,0.1) 0%, rgba(0,255,136,0.05) 100%);
+}
+
+.tier-playoff {
+  border-left-color: #00bfff;
+  background: linear-gradient(135deg, rgba(0,191,255,0.1) 0%, rgba(0,191,255,0.05) 100%);
+}
+
+.tier-middle {
+  border-left-color: #ff6b35;
+  background: linear-gradient(135deg, rgba(255,107,53,0.1) 0%, rgba(255,107,53,0.05) 100%);
+}
+
+.tier-rebuilding {
+  border-left-color: #8a2be2;
+  background: linear-gradient(135deg, rgba(138,43,226,0.1) 0%, rgba(138,43,226,0.05) 100%);
+}
+
+.tier-title {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tier-description {
+  font-style: italic;
+  opacity: 0.8;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+/* Team Card Styling */
+.team-card {
+  background: rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 1.5rem 0;
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.team-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, #ffd700 0%, #ff6b35 100%);
+}
+
+.team-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+  background: rgba(255,255,255,0.12);
+}
+
+.team-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.team-rank {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #ffd700;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.team-name {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  flex: 1;
+}
+
+.team-projection {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #00ff88;
+  background: rgba(0,255,136,0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  border: 2px solid #00ff88;
+}
+
+.team-manager {
+  font-size: 1rem;
+  color: #b0b0b0;
+  margin-bottom: 1rem;
+}
+
+.team-analysis {
+  line-height: 1.6;
+  font-size: 1.05rem;
+}
+
+.team-analysis h4 {
+  color: #ffd700;
+  font-size: 1.2rem;
+  margin: 1rem 0 0.5rem 0;
+  font-weight: 600;
+}
+
+.team-analysis p {
+  margin-bottom: 1rem;
+}
+
+/* Key Takeaways Section */
+.key-takeaways {
+  background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+  color: #ffffff;
+  padding: 3rem;
+  border-radius: 20px;
+  margin: 4rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.key-takeaways::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.key-takeaways h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.key-takeaways-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .article-title {
+    font-size: 2rem;
+  }
+  
+  .team-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .team-rank {
+    font-size: 2rem;
+  }
+  
+  .team-name {
+    font-size: 1.5rem;
+  }
+  
+  .content-container {
+    padding: 1rem;
+  }
+  
+  .tier-section {
+    padding: 1.5rem;
+  }
+}
+
+/* Highlight Effects */
+.highlight-gold {
+  color: #ffd700;
+  font-weight: 600;
+}
+
+.highlight-green {
+  color: #00ff88;
+  font-weight: 600;
+}
+
+.highlight-blue {
+  color: #00bfff;
+  font-weight: 600;
+}
+
+/* Loading Animation */
+.loading-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
