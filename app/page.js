@@ -25,7 +25,13 @@ export default function HomePage() {
         if (response.ok) {
           const data = await response.json();
           if (data.success && data.articles) {
-            setArticles(data.articles);
+            // Sort articles by timestamp (newest first)
+            const sortedArticles = data.articles.sort((a, b) => {
+              const dateA = new Date(a.timestamp || a.date || 0);
+              const dateB = new Date(b.timestamp || b.date || 0);
+              return dateB - dateA; // Descending order (newest first)
+            });
+            setArticles(sortedArticles);
           }
         }
 
