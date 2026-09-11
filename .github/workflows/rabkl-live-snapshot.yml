@@ -1,0 +1,155 @@
+name: RABKL live snapshot
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/rabkl-live-snapshot.yml'
+  schedule:
+    - cron: '7,22,37,52 * * * *'
+
+permissions:
+  contents: write
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Fetch and normalize current RABKL state
+        run: |
+          python - <<'PY'
+          import json, urllib.request, datetime, os
+
+          BASE='https://api.sleeper.app/v1'
+          LEAGUE='1346941554920546304'
+
+          def get(path):
+              req=urllib.request.Request(BASE+path,headers={'Accept':'application/json','User-Agent':'RABKL-Live-Snapshot/1.0'})
+              with urllib.request.urlopen(req,timeout=30) as r:
+                  return json.load(r)
+
+          users=get(f'/league/{LEAGUE}/users')
+          rosters=get(f'/league/{LEAGUE}/rosters')
+          players=get('/players/nba')
+
+          user_by={str(u.get('user_id')):u for u in users}
+          roster_by={int(r.get('roster_id')):r for r in rosters}
+
+          def team(rid):
+              try: rid=int(rid)
+              except: return {'team_name':'Unresolved franchise','gm':None}
+              r=roster_by.get(rid) or {}
+              u=user_by.get(str(r.get('owner_id'))) or {}
+              um=u.get('metadata') or {}
+              rm=r.get('metadata') or {}
+              return {
+                  'team_name': um.get('team_name') or rm.get('team_name') or u.get('display_name') or u.get('username') or 'Unassigned franchise',
+                  'gm': u.get('display_name') or u.get('username')
+              }
+
+          def player(pid):
+              p=players.get(str(pid)) or {}
+              return p.get('full_name') or ' '.join(x for x in [p.get('first_name'),p.get('last_name')] if x) or 'Unresolved player'
+
+          def pick_label(p):
+              r=int(p.get('round') or 0)
+              suffix={1:'1st',2:'2nd',3:'3rd'}.get(r,f'{r}th')
+              orig=team(p.get('roster_id'))
+              return {
+                  'label': f"{p.get('season')} {suffix} — originally {orig['team_name']}",
+                  'season': str(p.get('season')),
+                  'round': r,
+                  'original_team': orig['team_name'],
+                  'original_gm': orig['gm']
+              }
+
+          txs=[]
+          seen=set()
+          for rnd in range(1,26):
+              try: arr=get(f'/league/{LEAGUE}/transactions/{rnd}')
+              except Exception: continue
+              if not isinstance(arr,list): continue
+              for tx in arr:
+                  key=str(tx.get('transaction_id') or f"{tx.get('status_updated')}:{tx.get('roster_ids')}")
+                  if key in seen: continue
+                  seen.add(key); txs.append(tx)
+
+          def ts(tx): return int(tx.get('status_updated') or tx.get('created') or 0)
+          txs.sort(key=ts,reverse=True)
+
+          def iso(ms):
+              if not ms: return None
+              return datetime.datetime.fromtimestamp(ms/1000,datetime.timezone.utc).isoformat().replace('+00:00','Z')
+
+          def normalize(tx):
+              ids=set()
+              for rid in tx.get('roster_ids') or []: ids.add(int(rid))
+              for rid in (tx.get('adds') or {}).values(): ids.add(int(rid))
+              for rid in (tx.get('drops') or {}).values(): ids.add(int(rid))
+              for p in tx.get('draft_picks') or []:
+                  if p.get('owner_id') is not None: ids.add(int(p['owner_id']))
+                  if p.get('previous_owner_id') is not None: ids.add(int(p['previous_owner_id']))
+              sides=[]
+              for rid in sorted(ids):
+                  ident=team(rid)
+                  sides.append({
+                      'team_name':ident['team_name'],
+                      'gm':ident['gm'],
+                      'received':{
+                          'players':[player(pid) for pid,dest in (tx.get('adds') or {}).items() if int(dest)==rid],
+                          'picks':[pick_label(p) for p in (tx.get('draft_picks') or []) if int(p.get('owner_id') or -1)==rid]
+                      },
+                      'sent':{
+                          'players':[player(pid) for pid,src in (tx.get('drops') or {}).items() if int(src)==rid],
+                          'picks':[pick_label(p) for p in (tx.get('draft_picks') or []) if int(p.get('previous_owner_id') or -1)==rid]
+                      }
+                  })
+              return {
+                  'type':tx.get('type'),
+                  'status':tx.get('status'),
+                  'event_at':iso(ts(tx)),
+                  'participant_count':len(sides),
+                  'sides':sides
+              }
+
+          completed=[t for t in txs if t.get('status')=='complete']
+          trades=[t for t in completed if t.get('type')=='trade']
+          recent=[normalize(t) for t in completed[:30]]
+
+          # Detect only trade/block-related metadata keys without publishing account IDs.
+          metadata_signals=[]
+          for r in rosters:
+              ident=team(r.get('roster_id'))
+              for scope,md in [('roster',r.get('metadata') or {})]:
+                  vals={k:v for k,v in md.items() if 'trade' in k.lower() or 'block' in k.lower()}
+                  if vals: metadata_signals.append({'team_name':ident['team_name'],'gm':ident['gm'],'scope':scope,'signals':vals})
+          for u in users:
+              md=u.get('metadata') or {}
+              vals={k:v for k,v in md.items() if 'trade' in k.lower() or 'block' in k.lower()}
+              if vals:
+                  metadata_signals.append({'team_name':md.get('team_name') or u.get('display_name') or 'Unknown','gm':u.get('display_name'),'scope':'user','signals':vals})
+
+          out={
+              'generated_at':datetime.datetime.now(datetime.timezone.utc).isoformat().replace('+00:00','Z'),
+              'freshness':'live_sleeper_sync',
+              'latest_trade':normalize(trades[0]) if trades else None,
+              'recent_completed_events':recent,
+              'trade_block_public_api_note':'No authoritative native Trade Block event history was found in the documented public Sleeper transaction API; metadata signals below are diagnostic only, not Trade Block state.',
+              'trade_related_metadata_signals':metadata_signals
+          }
+          os.makedirs('data/live',exist_ok=True)
+          with open('data/live/latest-rabkl-snapshot.json','w') as f: json.dump(out,f,indent=2,ensure_ascii=False)
+          PY
+
+      - name: Commit normalized snapshot
+        run: |
+          git config user.name 'rabkl-live-bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add data/live/latest-rabkl-snapshot.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'chore: refresh RABKL live snapshot [skip live-sync]'
+          git push
