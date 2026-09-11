@@ -24,7 +24,7 @@ jobs:
           LEAGUE='1346941554920546304'
 
           def get(path):
-              req=urllib.request.Request(BASE+path,headers={'Accept':'application/json','User-Agent':'RABKL-Live-Snapshot/1.1'})
+              req=urllib.request.Request(BASE+path,headers={'Accept':'application/json','User-Agent':'RABKL-Live-Snapshot/1.2'})
               with urllib.request.urlopen(req,timeout=30) as r:
                   return json.load(r)
 
@@ -95,10 +95,13 @@ jobs:
 
           completed=[t for t in txs if t.get('status')=='complete']
           trades=[t for t in completed if t.get('type')=='trade']
+          pending=[t for t in txs if t.get('type')=='trade' and t.get('status')!='complete']
           out={
               'generated_at':datetime.datetime.now(datetime.timezone.utc).isoformat().replace('+00:00','Z'),
               'freshness':'live_sleeper_sync',
               'latest_trade':normalize(trades[0]) if trades else None,
+              'pending_trade_count':len(pending),
+              'pending_trades':[normalize(t) for t in pending[:20]],
               'recent_completed_events':[normalize(t) for t in completed[:40]]
           }
           os.makedirs('rabkl-live',exist_ok=True)
