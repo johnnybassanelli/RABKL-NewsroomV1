@@ -1,0 +1,1125 @@
+{
+  "generated_at": "2026-09-11T07:04:23.592904Z",
+  "freshness": "live_sleeper_sync",
+  "latest_trade": {
+    "type": "trade",
+    "status": "complete",
+    "event_at": "2026-09-11T04:29:53.214000Z",
+    "participant_count": 3,
+    "sides": [
+      {
+        "team_name": "Pregame Charania",
+        "gm": "PregameCharania",
+        "received": {
+          "players": [
+            "Jaime Jaquez"
+          ],
+          "picks": []
+        },
+        "sent": {
+          "players": [
+            "Jrue Holiday"
+          ],
+          "picks": [
+            {
+              "label": "2027 1st — originally kings GM Jeremy Lamb",
+              "season": "2027",
+              "round": 1,
+              "original_team": "kings GM Jeremy Lamb",
+              "original_gm": "jbrockhoff"
+            }
+          ]
+        }
+      },
+      {
+        "team_name": "Trey Lyles Fan Club",
+        "gm": "sleeperspenny",
+        "received": {
+          "players": [
+            "Davion Mitchell"
+          ],
+          "picks": []
+        },
+        "sent": {
+          "players": [
+            "Collin Sexton",
+            "Matisse Thybulle"
+          ],
+          "picks": [
+            {
+              "label": "2027 3rd — originally Trey Lyles Fan Club",
+              "season": "2027",
+              "round": 3,
+              "original_team": "Trey Lyles Fan Club",
+              "original_gm": "sleeperspenny"
+            },
+            {
+              "label": "2028 3rd — originally Team This Year",
+              "season": "2028",
+              "round": 3,
+              "original_team": "Team This Year",
+              "original_gm": "TeamNextYear1"
+            }
+          ]
+        }
+      },
+      {
+        "team_name": "ethanwatson",
+        "gm": "ethanwatson",
+        "received": {
+          "players": [
+            "Jrue Holiday",
+            "Collin Sexton",
+            "Matisse Thybulle"
+          ],
+          "picks": [
+            {
+              "label": "2027 3rd — originally Trey Lyles Fan Club",
+              "season": "2027",
+              "round": 3,
+              "original_team": "Trey Lyles Fan Club",
+              "original_gm": "sleeperspenny"
+            },
+            {
+              "label": "2028 3rd — originally Team This Year",
+              "season": "2028",
+              "round": 3,
+              "original_team": "Team This Year",
+              "original_gm": "TeamNextYear1"
+            },
+            {
+              "label": "2027 1st — originally kings GM Jeremy Lamb",
+              "season": "2027",
+              "round": 1,
+              "original_team": "kings GM Jeremy Lamb",
+              "original_gm": "jbrockhoff"
+            }
+          ]
+        },
+        "sent": {
+          "players": [
+            "Davion Mitchell",
+            "Jaime Jaquez"
+          ],
+          "picks": []
+        }
+      }
+    ]
+  },
+  "recent_completed_events": [
+    {
+      "type": "trade",
+      "status": "complete",
+      "event_at": "2026-09-11T04:29:53.214000Z",
+      "participant_count": 3,
+      "sides": [
+        {
+          "team_name": "Pregame Charania",
+          "gm": "PregameCharania",
+          "received": {
+            "players": [
+              "Jaime Jaquez"
+            ],
+            "picks": []
+          },
+          "sent": {
+            "players": [
+              "Jrue Holiday"
+            ],
+            "picks": [
+              {
+                "label": "2027 1st — originally kings GM Jeremy Lamb",
+                "season": "2027",
+                "round": 1,
+                "original_team": "kings GM Jeremy Lamb",
+                "original_gm": "jbrockhoff"
+              }
+            ]
+          }
+        },
+        {
+          "team_name": "Trey Lyles Fan Club",
+          "gm": "sleeperspenny",
+          "received": {
+            "players": [
+              "Davion Mitchell"
+            ],
+            "picks": []
+          },
+          "sent": {
+            "players": [
+              "Collin Sexton",
+              "Matisse Thybulle"
+            ],
+            "picks": [
+              {
+                "label": "2027 3rd — originally Trey Lyles Fan Club",
+                "season": "2027",
+                "round": 3,
+                "original_team": "Trey Lyles Fan Club",
+                "original_gm": "sleeperspenny"
+              },
+              {
+                "label": "2028 3rd — originally Team This Year",
+                "season": "2028",
+                "round": 3,
+                "original_team": "Team This Year",
+                "original_gm": "TeamNextYear1"
+              }
+            ]
+          }
+        },
+        {
+          "team_name": "ethanwatson",
+          "gm": "ethanwatson",
+          "received": {
+            "players": [
+              "Jrue Holiday",
+              "Collin Sexton",
+              "Matisse Thybulle"
+            ],
+            "picks": [
+              {
+                "label": "2027 3rd — originally Trey Lyles Fan Club",
+                "season": "2027",
+                "round": 3,
+                "original_team": "Trey Lyles Fan Club",
+                "original_gm": "sleeperspenny"
+              },
+              {
+                "label": "2028 3rd — originally Team This Year",
+                "season": "2028",
+                "round": 3,
+                "original_team": "Team This Year",
+                "original_gm": "TeamNextYear1"
+              },
+              {
+                "label": "2027 1st — originally kings GM Jeremy Lamb",
+                "season": "2027",
+                "round": 1,
+                "original_team": "kings GM Jeremy Lamb",
+                "original_gm": "jbrockhoff"
+              }
+            ]
+          },
+          "sent": {
+            "players": [
+              "Davion Mitchell",
+              "Jaime Jaquez"
+            ],
+            "picks": []
+          }
+        }
+      ]
+    },
+    {
+      "type": "free_agent",
+      "status": "complete",
+      "event_at": "2026-09-09T23:31:22.091000Z",
+      "participant_count": 1,
+      "sides": [
+        {
+          "team_name": "DBDahmir_",
+          "gm": "DBDahmir_",
+          "received": {
+            "players": [
+              "Kevon Looney"
+            ],
+            "picks": []
+          },
+          "sent": {
+            "players": [
+              "Darius Bazley"
+            ],
+            "picks": []
+          }
+        }
+      ]
+    },
+    {
+      "type": "free_agent",
+      "status": "complete",
+      "event_at": "2026-09-09T23:30:45.339000Z",
+      "participant_count": 1,
+      "sides": [
+        {
+          "team_name": "DBDahmir_",
+          "gm": "DBDahmir_",
+          "received": {
+            "players": [],
+            "picks": []
+          },
+          "sent": {
+            "players": [
+              "Nassir Little"
+            ],
+            "picks": []
+          }
+        }
+      ]
+    },
+    {
+      "type": "free_agent",
+      "status": "complete",
+      "event_at": "2026-09-09T23:30:40.371000Z",
+      "participant_count": 1,
+      "sides": [
+        {
+          "team_name": "DBDahmir_",
+          "gm": "DBDahmir_",
+          "received": {
+            "players": [],
+            "picks": []
+          },
+          "sent": {
+            "players": [
+              "Roman Sorkin"
+            ],
+            "picks": []
+          }
+        }
+      ]
+    },
+    {
+      "type": "free_agent",
+      "status": "complete",
+      "event_at": "2026-09-09T23:30:31.997000Z",
+      "participant_count": 1,
+      "sides": [
+        {
+          "team_name": "DBDahmir_",
+          "gm": "DBDahmir_",
+          "received": {
+            "players": [],
+            "picks": []
+          },
+          "sent": {
+            "players": [
+              "Malik Hall"
+            ],
+            "picks": []
+          }
+        }
+      ]
+    },
+    {
+      "type": "free_agent",
+      "status": "complete",
+      "event_at": "2026-09-09T23:30:19.849000Z",
+      "participant_count": 1,
+      "sides": [
+        {
+          "team_name": "DBDahmir_",
+          "gm": "DBDahmir_",
+          "received": {
+            "players": [],
+            "picks": []
+          },
+          "sent": {
+            "players": [
+              "Admiral Schofield"
+            ],
+            "picks": []
+          }
+        }
+      ]
+    },
+    {
+      "type": "free_agent",
+      "status": "complete",
+      "event_at": "2026-09-09T23:30:15.859000Z",
+      "participant_count": 1,
+      "sides": [
+        {
+          "team_name": "DBDahmir_",
+          "gm": "DBDahmir_",
+          "received": {
+            "players": [],
+            "picks": []
+          },
+          "sent": {
+            "players": [
+              "Luc Mbah a Moute"
+            ],
+            "picks": []
+          }
+        }
+      ]
+    },
+    {
+      "type": "free_agent",
+      "status": "complete",
+      "event_at": "2026-09-09T23:30:10.546000Z",
+      "participant_count": 1,
+      "sides": [
+        {
+          "team_name": "DBDahmir_",
+          "gm": "DBDahmir_",
+          "received": {
+            "players": [],
+            "picks": []
+          },
+          "sent": {
+            "players": [
+              "Xavier Sneed"
+            ],
+            "picks": []
+          }
+        }
+      ]
+    },
+    {
+      "type": "free_agent",
+      "status": "complete",
+      "event_at": "2026-09-09T23:30:05.452000Z",
+      "participant_count": 1,
+      "sides": [
+        {
+          "team_name": "DBDahmir_",
+          "gm": "DBDahmir_",
+          "received": {
+            "players": [],
+            "picks": []
+          },
+          "sent": {
+            "players": [
+              "Austin Daye"
+            ],
+            "picks": []
+          }
+        }
+      ]
+    },
+    {
+      "type": "free_agent",
+      "status": "complete",
+      "event_at": "2026-09-09T23:30:01.814000Z",
+      "participant_count": 1,
+      "sides": [
+        {
+          "team_name": "DBDahmir_",
+          "gm": "DBDahmir_",
+          "received": {
+            "players": [],
+            "picks": []
+          },
+          "sent": {
+            "players": [
+              "RJ Nembhard"
+            ],
+            "picks": []
+          }
+        }
+      ]
+    },
+    {
+      "type": "free_agent",
+      "status": "complete",
+      "event_at": "2026-09-09T23:29:56.969000Z",
+      "participant_count": 1,
+      "sides": [
+        {
+          "team_name": "DBDahmir_",
+          "gm": "DBDahmir_",
+          "received": {
+            "players": [],
+            "picks": []
+          },
+          "sent": {
+            "players": [
+              "Kyle Collinsworth"
+            ],
+            "picks": []
+          }
+        }
+      ]
+    },
+    {
+      "type": "free_agent",
+      "status": "complete",
+      "event_at": "2026-09-09T23:29:52.372000Z",
+      "participant_count": 1,
+      "sides": [
+        {
+          "team_name": "DBDahmir_",
+          "gm": "DBDahmir_",
+          "received": {
+            "players": [],
+            "picks": []
+          },
+          "sent": {
+            "players": [
+              "Tony Snell"
+            ],
+            "picks": []
+          }
+        }
+      ]
+    },
+    {
+      "type": "free_agent",
+      "status": "complete",
+      "event_at": "2026-09-09T23:29:47.901000Z",
+      "participant_count": 1,
+      "sides": [
+        {
+          "team_name": "DBDahmir_",
+          "gm": "DBDahmir_",
+          "received": {
+            "players": [],
+            "picks": []
+          },
+          "sent": {
+            "players": [
+              "Hunter Sallis"
+            ],
+            "picks": []
+          }
+        }
+      ]
+    },
+    {
+      "type": "free_agent",
+      "status": "complete",
+      "event_at": "2026-09-09T23:29:39.795000Z",
+      "participant_count": 1,
+      "sides": [
+        {
+          "team_name": "DBDahmir_",
+          "gm": "DBDahmir_",
+          "received": {
+            "players": [],
+            "picks": []
+          },
+          "sent": {
+            "players": [
+              "Kyle Mangas"
+            ],
+            "picks": []
+          }
+        }
+      ]
+    },
+    {
+      "type": "free_agent",
+      "status": "complete",
+      "event_at": "2026-09-09T23:29:35.904000Z",
+      "participant_count": 1,
+      "sides": [
+        {
+          "team_name": "DBDahmir_",
+          "gm": "DBDahmir_",
+          "received": {
+            "players": [],
+            "picks": []
+          },
+          "sent": {
+            "players": [
+              "Souley Boum"
+            ],
+            "picks": []
+          }
+        }
+      ]
+    },
+    {
+      "type": "free_agent",
+      "status": "complete",
+      "event_at": "2026-09-06T05:47:55.954000Z",
+      "participant_count": 1,
+      "sides": [
+        {
+          "team_name": "Will Deans Dream Team ",
+          "gm": "snakeandrews",
+          "received": {
+            "players": [],
+            "picks": []
+          },
+          "sent": {
+            "players": [
+              "Tre Mann"
+            ],
+            "picks": []
+          }
+        }
+      ]
+    },
+    {
+      "type": "free_agent",
+      "status": "complete",
+      "event_at": "2026-09-06T05:39:12.173000Z",
+      "participant_count": 1,
+      "sides": [
+        {
+          "team_name": "Trey Lyles Fan Club",
+          "gm": "sleeperspenny",
+          "received": {
+            "players": [],
+            "picks": []
+          },
+          "sent": {
+            "players": [
+              "Kevon Looney"
+            ],
+            "picks": []
+          }
+        }
+      ]
+    },
+    {
+      "type": "trade",
+      "status": "complete",
+      "event_at": "2026-09-06T05:23:24.741000Z",
+      "participant_count": 2,
+      "sides": [
+        {
+          "team_name": "Trey Lyles Fan Club",
+          "gm": "sleeperspenny",
+          "received": {
+            "players": [
+              "Nickeil Alexander-Walker",
+              "Sandro Mamukelashvili"
+            ],
+            "picks": []
+          },
+          "sent": {
+            "players": [
+              "Dean Wade",
+              "Ryan Dunn",
+              "Nique Clifford"
+            ],
+            "picks": [
+              {
+                "label": "2027 2nd — originally Boss Queen Paper Chaser",
+                "season": "2027",
+                "round": 2,
+                "original_team": "Boss Queen Paper Chaser",
+                "original_gm": "cillawilla"
+              },
+              {
+                "label": "2028 2nd — originally Trey Lyles Fan Club",
+                "season": "2028",
+                "round": 2,
+                "original_team": "Trey Lyles Fan Club",
+                "original_gm": "sleeperspenny"
+              },
+              {
+                "label": "2028 2nd — originally Marginal Movers™️",
+                "season": "2028",
+                "round": 2,
+                "original_team": "Marginal Movers™️",
+                "original_gm": "MarginalMoves"
+              },
+              {
+                "label": "2027 2nd — originally acuffjr5",
+                "season": "2027",
+                "round": 2,
+                "original_team": "acuffjr5",
+                "original_gm": "acuffjr5"
+              },
+              {
+                "label": "2028 2nd — originally acuffjr5",
+                "season": "2028",
+                "round": 2,
+                "original_team": "acuffjr5",
+                "original_gm": "acuffjr5"
+              }
+            ]
+          }
+        },
+        {
+          "team_name": "Will Deans Dream Team ",
+          "gm": "snakeandrews",
+          "received": {
+            "players": [
+              "Dean Wade",
+              "Ryan Dunn",
+              "Nique Clifford"
+            ],
+            "picks": [
+              {
+                "label": "2027 2nd — originally Boss Queen Paper Chaser",
+                "season": "2027",
+                "round": 2,
+                "original_team": "Boss Queen Paper Chaser",
+                "original_gm": "cillawilla"
+              },
+              {
+                "label": "2028 2nd — originally Trey Lyles Fan Club",
+                "season": "2028",
+                "round": 2,
+                "original_team": "Trey Lyles Fan Club",
+                "original_gm": "sleeperspenny"
+              },
+              {
+                "label": "2028 2nd — originally Marginal Movers™️",
+                "season": "2028",
+                "round": 2,
+                "original_team": "Marginal Movers™️",
+                "original_gm": "MarginalMoves"
+              },
+              {
+                "label": "2027 2nd — originally acuffjr5",
+                "season": "2027",
+                "round": 2,
+                "original_team": "acuffjr5",
+                "original_gm": "acuffjr5"
+              },
+              {
+                "label": "2028 2nd — originally acuffjr5",
+                "season": "2028",
+                "round": 2,
+                "original_team": "acuffjr5",
+                "original_gm": "acuffjr5"
+              }
+            ]
+          },
+          "sent": {
+            "players": [
+              "Nickeil Alexander-Walker",
+              "Sandro Mamukelashvili"
+            ],
+            "picks": []
+          }
+        }
+      ]
+    },
+    {
+      "type": "free_agent",
+      "status": "complete",
+      "event_at": "2026-09-05T20:30:09.682000Z",
+      "participant_count": 1,
+      "sides": [
+        {
+          "team_name": "Unassigned franchise",
+          "gm": null,
+          "received": {
+            "players": [],
+            "picks": []
+          },
+          "sent": {
+            "players": [
+              "LiAngelo Ball"
+            ],
+            "picks": []
+          }
+        }
+      ]
+    },
+    {
+      "type": "free_agent",
+      "status": "complete",
+      "event_at": "2026-09-02T21:13:51.086000Z",
+      "participant_count": 1,
+      "sides": [
+        {
+          "team_name": "ethanwatson",
+          "gm": "ethanwatson",
+          "received": {
+            "players": [
+              "Jamison Battle"
+            ],
+            "picks": []
+          },
+          "sent": {
+            "players": [
+              "Elijah Harkless"
+            ],
+            "picks": []
+          }
+        }
+      ]
+    },
+    {
+      "type": "free_agent",
+      "status": "complete",
+      "event_at": "2026-09-02T21:13:38.780000Z",
+      "participant_count": 1,
+      "sides": [
+        {
+          "team_name": "ethanwatson",
+          "gm": "ethanwatson",
+          "received": {
+            "players": [
+              "DeAndre Jordan"
+            ],
+            "picks": []
+          },
+          "sent": {
+            "players": [
+              "Malevy Leons"
+            ],
+            "picks": []
+          }
+        }
+      ]
+    },
+    {
+      "type": "free_agent",
+      "status": "complete",
+      "event_at": "2026-09-01T23:28:35.513000Z",
+      "participant_count": 1,
+      "sides": [
+        {
+          "team_name": "Boss Queen Paper Chaser",
+          "gm": "cillawilla",
+          "received": {
+            "players": [
+              "Pete Nance"
+            ],
+            "picks": []
+          },
+          "sent": {
+            "players": [
+              "Dillon Jones"
+            ],
+            "picks": []
+          }
+        }
+      ]
+    },
+    {
+      "type": "free_agent",
+      "status": "complete",
+      "event_at": "2026-09-01T22:32:36.876000Z",
+      "participant_count": 1,
+      "sides": [
+        {
+          "team_name": "Pregame Charania",
+          "gm": "PregameCharania",
+          "received": {
+            "players": [
+              "Tacko Fall"
+            ],
+            "picks": []
+          },
+          "sent": {
+            "players": [],
+            "picks": []
+          }
+        }
+      ]
+    },
+    {
+      "type": "free_agent",
+      "status": "complete",
+      "event_at": "2026-09-01T20:30:27.633000Z",
+      "participant_count": 1,
+      "sides": [
+        {
+          "team_name": "Beer Belly Ballas",
+          "gm": "JLove408",
+          "received": {
+            "players": [
+              "Kam Jones"
+            ],
+            "picks": []
+          },
+          "sent": {
+            "players": [
+              "Cam Reddish"
+            ],
+            "picks": []
+          }
+        }
+      ]
+    },
+    {
+      "type": "trade",
+      "status": "complete",
+      "event_at": "2026-09-01T20:03:45.237000Z",
+      "participant_count": 3,
+      "sides": [
+        {
+          "team_name": "Pregame Charania",
+          "gm": "PregameCharania",
+          "received": {
+            "players": [
+              "Jrue Holiday",
+              "Toumani Camara"
+            ],
+            "picks": [
+              {
+                "label": "2027 1st — originally Beer Belly Ballas",
+                "season": "2027",
+                "round": 1,
+                "original_team": "Beer Belly Ballas",
+                "original_gm": "JLove408"
+              },
+              {
+                "label": "2027 2nd — originally Beer Belly Ballas",
+                "season": "2027",
+                "round": 2,
+                "original_team": "Beer Belly Ballas",
+                "original_gm": "JLove408"
+              },
+              {
+                "label": "2027 1st — originally kings GM Jeremy Lamb",
+                "season": "2027",
+                "round": 1,
+                "original_team": "kings GM Jeremy Lamb",
+                "original_gm": "jbrockhoff"
+              }
+            ]
+          },
+          "sent": {
+            "players": [
+              "Pascal Siakam",
+              "Robert Williams",
+              "Alex Karaban"
+            ],
+            "picks": [
+              {
+                "label": "2027 2nd — originally kings GM Jeremy Lamb",
+                "season": "2027",
+                "round": 2,
+                "original_team": "kings GM Jeremy Lamb",
+                "original_gm": "jbrockhoff"
+              }
+            ]
+          }
+        },
+        {
+          "team_name": "Trey Lyles Fan Club",
+          "gm": "sleeperspenny",
+          "received": {
+            "players": [
+              "Collin Sexton",
+              "Trey Murphy"
+            ],
+            "picks": []
+          },
+          "sent": {
+            "players": [
+              "Ja Morant"
+            ],
+            "picks": []
+          }
+        },
+        {
+          "team_name": "Beer Belly Ballas",
+          "gm": "JLove408",
+          "received": {
+            "players": [
+              "Pascal Siakam",
+              "Robert Williams",
+              "Ja Morant",
+              "Alex Karaban"
+            ],
+            "picks": [
+              {
+                "label": "2027 2nd — originally kings GM Jeremy Lamb",
+                "season": "2027",
+                "round": 2,
+                "original_team": "kings GM Jeremy Lamb",
+                "original_gm": "jbrockhoff"
+              }
+            ]
+          },
+          "sent": {
+            "players": [
+              "Jrue Holiday",
+              "Collin Sexton",
+              "Trey Murphy",
+              "Toumani Camara"
+            ],
+            "picks": [
+              {
+                "label": "2027 1st — originally Beer Belly Ballas",
+                "season": "2027",
+                "round": 1,
+                "original_team": "Beer Belly Ballas",
+                "original_gm": "JLove408"
+              },
+              {
+                "label": "2027 2nd — originally Beer Belly Ballas",
+                "season": "2027",
+                "round": 2,
+                "original_team": "Beer Belly Ballas",
+                "original_gm": "JLove408"
+              },
+              {
+                "label": "2027 1st — originally kings GM Jeremy Lamb",
+                "season": "2027",
+                "round": 1,
+                "original_team": "kings GM Jeremy Lamb",
+                "original_gm": "jbrockhoff"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "free_agent",
+      "status": "complete",
+      "event_at": "2026-09-01T20:02:49.686000Z",
+      "participant_count": 1,
+      "sides": [
+        {
+          "team_name": "Dashop07",
+          "gm": "Dashop07",
+          "received": {
+            "players": [
+              "Charles Bassey"
+            ],
+            "picks": []
+          },
+          "sent": {
+            "players": [
+              "Malique Lewis"
+            ],
+            "picks": []
+          }
+        }
+      ]
+    },
+    {
+      "type": "waiver",
+      "status": "complete",
+      "event_at": "2026-09-01T11:58:28.239000Z",
+      "participant_count": 1,
+      "sides": [
+        {
+          "team_name": "Greatest GM of All-Time",
+          "gm": "JJGoat18",
+          "received": {
+            "players": [
+              "Tyler Kolek"
+            ],
+            "picks": []
+          },
+          "sent": {
+            "players": [],
+            "picks": []
+          }
+        }
+      ]
+    },
+    {
+      "type": "free_agent",
+      "status": "complete",
+      "event_at": "2026-08-31T19:57:54.368000Z",
+      "participant_count": 1,
+      "sides": [
+        {
+          "team_name": "Greatest GM of All-Time",
+          "gm": "JJGoat18",
+          "received": {
+            "players": [
+              "Larry Nance"
+            ],
+            "picks": []
+          },
+          "sent": {
+            "players": [],
+            "picks": []
+          }
+        }
+      ]
+    },
+    {
+      "type": "waiver",
+      "status": "complete",
+      "event_at": "2026-08-30T12:49:05Z",
+      "participant_count": 1,
+      "sides": [
+        {
+          "team_name": "SKOL",
+          "gm": "InsaneCroc18",
+          "received": {
+            "players": [
+              "Jamir Watkins"
+            ],
+            "picks": []
+          },
+          "sent": {
+            "players": [
+              "Tyler Kolek"
+            ],
+            "picks": []
+          }
+        }
+      ]
+    },
+    {
+      "type": "free_agent",
+      "status": "complete",
+      "event_at": "2026-08-29T19:19:24.595000Z",
+      "participant_count": 1,
+      "sides": [
+        {
+          "team_name": "Team This Year",
+          "gm": "TeamNextYear1",
+          "received": {
+            "players": [],
+            "picks": []
+          },
+          "sent": {
+            "players": [
+              "Jaden Ivey"
+            ],
+            "picks": []
+          }
+        }
+      ]
+    }
+  ],
+  "trade_block_public_api_note": "No authoritative native Trade Block event history was found in the documented public Sleeper transaction API; metadata signals below are diagnostic only, not Trade Block state.",
+  "trade_related_metadata_signals": [
+    {
+      "team_name": "Jon Brockman fanclub",
+      "gm": "Burcon01",
+      "scope": "user",
+      "signals": {
+        "trade_block_pn": "on",
+        "transaction_trade": "off"
+      }
+    },
+    {
+      "team_name": "Shai Something",
+      "gm": "Darl0w",
+      "scope": "user",
+      "signals": {
+        "trade_block_pn": "on",
+        "transaction_trade": "on"
+      }
+    },
+    {
+      "team_name": "Pregame Charania",
+      "gm": "PregameCharania",
+      "scope": "user",
+      "signals": {
+        "trade_block_pn": "on",
+        "transaction_trade": "on"
+      }
+    },
+    {
+      "team_name": "Will Deans Dream Team ",
+      "gm": "snakeandrews",
+      "scope": "user",
+      "signals": {
+        "trade_block_pn": "on",
+        "transaction_trade": "on"
+      }
+    },
+    {
+      "team_name": "Greatest GM of All-Time",
+      "gm": "JJGoat18",
+      "scope": "user",
+      "signals": {
+        "trade_block_pn": "on",
+        "transaction_trade": "on"
+      }
+    },
+    {
+      "team_name": "Levant Me Alone",
+      "gm": "Sassia",
+      "scope": "user",
+      "signals": {
+        "trade_block_pn": "on",
+        "transaction_trade": "on"
+      }
+    }
+  ]
+}
